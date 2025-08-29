@@ -35,17 +35,17 @@ const Footer = () => {
           <div className="text-center">
             {/* Schedule */}
             <div className="mb-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* First Column: Lunes - Jueves */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {(() => {
                     const weekdays = ['Lunes:', 'Martes:', 'Miércoles:', 'Jueves:'];
                     return weekdays.map((day, index) => {
                       const hours = businessInfo.schedule[index];
                       return (
-                        <div key={index} className="flex justify-between items-center">
-                          <span className="text-[#B8B8B8] text-base">{day}</span>
-                          <span className="text-white text-base font-light">
+                        <div key={index} className="flex justify-between items-center text-sm">
+                          <span className="text-[#B8B8B8]">{day}</span>
+                          <span className="text-white font-light whitespace-nowrap">
                             {hours}
                           </span>
                         </div>
@@ -55,15 +55,15 @@ const Footer = () => {
                 </div>
                 
                 {/* Second Column: Viernes - Domingo */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {(() => {
                     const weekend = ['Viernes:', 'Sábado:', 'Domingo:'];
                     return weekend.map((day, index) => {
                       const hours = businessInfo.schedule[index + 4]; // Start from index 4 (Friday)
                       return (
-                        <div key={index} className="flex justify-between items-center">
-                          <span className="text-[#B8B8B8] text-base">{day}</span>
-                          <span className="text-white text-base font-light">
+                        <div key={index} className="flex justify-between items-center text-sm">
+                          <span className="text-[#B8B8B8]">{day}</span>
+                          <span className="text-white font-light whitespace-nowrap">
                             {hours}
                           </span>
                         </div>
