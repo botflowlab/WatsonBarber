@@ -63,7 +63,7 @@ const Hero = () => {
               {/* Business Name */}
               <div className="">
                 <h2 className="text-[#BEA185] text-2xl sm:text-3xl lg:text-4xl font-light tracking-[0.15em] uppercase">
-                  Steven Tabach
+                  Waston Barber
                 </h2>
               </div>
               
