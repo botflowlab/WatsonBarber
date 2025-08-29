@@ -90,7 +90,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="text-[#B8B8B8] text-sm">
-              © 2025. All Rights Reserved.
+              © 2025 Watson Barber. All Rights Reserved.
             </div>
           </div>
         </div>
