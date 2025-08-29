@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Left Column - Address and Phone */}
           <div className="text-center md:text-left">
             <div className="text-[#B8B8B8] text-base mb-3">
-              {businessInfo.location}
+              Watson Barber, Provincia de San José, San José, 10903
             </div>
             <div className="text-white text-3xl font-light">
               +506 8680 0468
