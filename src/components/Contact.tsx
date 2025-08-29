@@ -5,14 +5,14 @@ const Contact = () => {
   const businessInfo = {
     name: 'Steven Tabach',
     location: '2Q7P+8GW, Av. 6 De las Provincias, Provincia de Alajuela, Alajuela, Costa Rica',
-    number: '+506 8484 2060',
+    number: '+506 8680 0468',
     schedule: [
-      '9:00 AM - 6:00 PM', // Monday
-      '9:00 AM - 6:00 PM', // Tuesday
-      '9:00 AM - 6:00 PM', // Wednesday
-      '9:00 AM - 6:00 PM', // Thursday
-      '9:00 AM - 6:00 PM', // Friday
-      '9:00 AM - 5:00 PM', // Saturday
+      '9:30 AM - 7:00 PM', // Monday
+      '9:30 AM - 7:00 PM', // Tuesday
+      '9:30 AM - 7:00 PM', // Wednesday
+      '9:30 AM - 7:00 PM', // Thursday
+      '9:30 AM - 7:00 PM', // Friday
+      '9:30 AM - 7:00 PM', // Saturday
       'CERRADO'            // Sunday
     ]
   };
