@@ -1,13 +1,20 @@
 import React from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
-import { useBusinessInfo } from '../hooks/useBusinessInfo';
+import { MapPin, Phone } from 'lucide-react';
 
-interface TeamExpertsProps {
-  slug?: string;
-}
-
-const TeamExperts = ({ slug }: TeamExpertsProps) => {
-  const { businessInfo, loading } = useBusinessInfo(slug);
+const TeamExperts = () => {
+  const businessInfo = {
+    location: '2Q7P+8GW, Av. 6 De las Provincias, Provincia de Alajuela, Alajuela, Costa Rica',
+    number: '+506 8484 2060',
+    schedule: [
+      '9:00 AM - 6:00 PM', // Monday
+      '9:00 AM - 6:00 PM', // Tuesday
+      '9:00 AM - 6:00 PM', // Wednesday
+      '9:00 AM - 6:00 PM', // Thursday
+      '9:00 AM - 6:00 PM', // Friday
+      '9:00 AM - 5:00 PM', // Saturday
+      'CERRADO'            // Sunday
+    ]
+  };
 
   return (
     <section className="relative min-h-screen flex items-center" style={{ backgroundColor: '#0c0c0c' }}>
@@ -31,34 +38,22 @@ const TeamExperts = ({ slug }: TeamExpertsProps) => {
               <div className="hidden lg:block absolute bottom-4 right-4 bg-black/90 backdrop-blur-sm border border-[#BEA185] p-4 max-w-[320px] min-w-[280px] z-50">
                 {/* Schedule */}
                 <div className="mb-4">
-                  {loading ? (
-                    <div className="space-y-1">
-                      <div className="flex justify-between items-center">
-                        <span className="text-[#B8B8B8] text-sm">Loading...</span>
-                      </div>
-                    </div>
-                  ) : businessInfo?.schedule ? (
-                    <div className="space-y-1">
-                      {(() => {
-                        const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-                        return days.map((day, index) => {
-                          const hours = businessInfo.schedule[index];
-                          return (
-                            <div key={index} className="flex justify-between items-center">
-                              <span className="text-[#B8B8B8] text-xs">{day.slice(0, 3)}:</span>
-                              <span className="text-white text-xs font-medium">
-                               {hours && hours.trim() !== '' && hours.trim().toLowerCase() !== 'closed' ? hours : 'CERRADO'}
-                              </span>
-                            </div>
-                          );
-                        });
-                      })()}
-                    </div>
-                  ) : (
-                    <div className="text-[#B8B8B8] text-xs">
-                      Schedule not available
-                    </div>
-                  )}
+                  <div className="space-y-1">
+                    {(() => {
+                      const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+                      return days.map((day, index) => {
+                        const hours = businessInfo.schedule[index];
+                        return (
+                          <div key={index} className="flex justify-between items-center">
+                            <span className="text-[#B8B8B8] text-xs">{day.slice(0, 3)}:</span>
+                            <span className="text-white text-xs font-medium">
+                              {hours}
+                            </span>
+                          </div>
+                        );
+                      });
+                    })()}
+                  </div>
                 </div>
 
                 {/* Divider */}
@@ -68,7 +63,7 @@ const TeamExperts = ({ slug }: TeamExpertsProps) => {
                 <div className="flex items-start space-x-3 mb-3">
                   <MapPin className="h-4 w-4 text-[#F6CAA4]" />
                   <span className="text-white text-xs leading-tight">
-                    {loading ? 'Loading...' : businessInfo?.location || '(212) 355-0660'}
+                    {businessInfo.location}
                   </span>
                 </div>
 
@@ -80,7 +75,7 @@ const TeamExperts = ({ slug }: TeamExpertsProps) => {
                   <div className="flex items-center space-x-3">
                     <Phone className="h-4 w-4 text-[#F6CAA4]" />
                     <span className="text-white text-xs">
-                      {loading ? 'Loading...' : businessInfo?.number || '(212) 355-0660'}
+                      {businessInfo.number}
                     </span>
                   </div>
                 </div>
@@ -126,34 +121,22 @@ const TeamExperts = ({ slug }: TeamExpertsProps) => {
           <div className="lg:hidden order-3 w-full bg-black/90 backdrop-blur-sm border border-[#BEA185] p-4 max-w-[320px] min-w-[280px] mx-auto">
               {/* Schedule */}
               <div className="mb-4">
-                {loading ? (
-                  <div className="space-y-1">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[#B8B8B8] text-sm">Loading...</span>
-                    </div>
-                  </div>
-                ) : businessInfo?.schedule ? (
-                  <div className="space-y-1">
-                    {(() => {
-                      const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-                      return days.map((day, index) => {
-                        const hours = businessInfo.schedule[index];
-                        return (
-                          <div key={index} className="flex justify-between items-center">
-                            <span className="text-[#B8B8B8] text-xs">{day.slice(0, 3)}:</span>
-                            <span className="text-white text-xs font-medium">
-                             {hours && hours.trim() !== '' && hours.trim().toLowerCase() !== 'closed' ? hours : 'CERRADO'}
-                            </span>
-                          </div>
-                        );
-                      });
-                    })()}
-                  </div>
-                ) : (
-                  <div className="text-[#B8B8B8] text-xs">
-                    Schedule not available
-                  </div>
-                )}
+                <div className="space-y-1">
+                  {(() => {
+                    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+                    return days.map((day, index) => {
+                      const hours = businessInfo.schedule[index];
+                      return (
+                        <div key={index} className="flex justify-between items-center">
+                          <span className="text-[#B8B8B8] text-xs">{day.slice(0, 3)}:</span>
+                          <span className="text-white text-xs font-medium">
+                            {hours}
+                          </span>
+                        </div>
+                      );
+                    });
+                  })()}
+                </div>
               </div>
 
               {/* Divider */}
@@ -163,7 +146,7 @@ const TeamExperts = ({ slug }: TeamExpertsProps) => {
               <div className="flex items-start space-x-3 mb-3">
                 <MapPin className="h-4 w-4 text-[#F6CAA4]" />
                 <span className="text-white text-xs leading-tight">
-                  {loading ? 'Loading...' : businessInfo?.location || '(212) 355-0660'}
+                  {businessInfo.location}
                 </span>
               </div>
 
@@ -175,7 +158,7 @@ const TeamExperts = ({ slug }: TeamExpertsProps) => {
                 <div className="flex items-center space-x-3">
                   <Phone className="h-4 w-4 text-[#F6CAA4]" />
                   <span className="text-white text-xs">
-                    {loading ? 'Loading...' : businessInfo?.number || '(212) 355-0660'}
+                    {businessInfo.number}
                   </span>
                 </div>
               </div>

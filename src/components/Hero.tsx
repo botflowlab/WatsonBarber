@@ -1,14 +1,7 @@
 import React from 'react';
 import { Scissors } from 'lucide-react';
-import { useBusinessInfo } from '../hooks/useBusinessInfo';
 
-interface HeroProps {
-  slug?: string;
-}
-
-const Hero = ({ slug }: HeroProps) => {
-  const { businessInfo, loading } = useBusinessInfo(slug);
-
+const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0c0c0c' }}>
       
@@ -29,7 +22,7 @@ const Hero = ({ slug }: HeroProps) => {
                 </div>
               </div>
               <div className="text-white text-lg font-light tracking-[0.15em] uppercase">
-                {loading ? 'Loading...' : businessInfo?.name || 'Steven Tabach'}
+                Steven Tabach
               </div>
               <div className="text-[#BEA185] text-xs tracking-[0.2em] uppercase font-light mt-1">
                 Costa Rica
@@ -64,7 +57,7 @@ const Hero = ({ slug }: HeroProps) => {
               {/* Business Name */}
               <div className="">
                 <h2 className="text-[#BEA185] text-2xl sm:text-3xl lg:text-4xl font-light tracking-[0.15em] uppercase">
-                  {loading ? 'Loading...' : businessInfo?.name || ''}
+                  Steven Tabach
                 </h2>
               </div>
               

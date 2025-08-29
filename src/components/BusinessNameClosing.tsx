@@ -1,13 +1,6 @@
 import React from 'react';
-import { useBusinessInfo } from '../hooks/useBusinessInfo';
 
-interface BusinessNameClosingProps {
-  slug?: string;
-}
-
-const BusinessNameClosing = ({ slug }: BusinessNameClosingProps) => {
-  const { businessInfo, loading } = useBusinessInfo(slug);
-
+const BusinessNameClosing = () => {
   return (
     <section className="py-32 bg-[#0c0c0c] text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,15 +11,9 @@ const BusinessNameClosing = ({ slug }: BusinessNameClosingProps) => {
           
           {/* Business Name */}
           <div className="relative z-10">
-            {loading ? (
-              <div className="text-[#BEA185] text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-extralight tracking-[0.1em] uppercase animate-pulse">
-                Loading...
-              </div>
-            ) : (
-              <h1 className="text-[#BEA185] text-3xl sm:text-4xl lg:text-5xl xl:text-9xl font-extralight tracking-[0.1em] uppercase leading-none">
-                {businessInfo?.name || 'Steven Tabach'}
-              </h1>
-            )}
+            <h1 className="text-[#BEA185] text-3xl sm:text-4xl lg:text-5xl xl:text-9xl font-extralight tracking-[0.1em] uppercase leading-none">
+              Steven Tabach
+            </h1>
             
             {/* Subtitle */}
             <div className="mt-8">

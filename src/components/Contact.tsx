@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Clock, Mail } from 'lucide-react';
-import { useBusinessInfo } from '../hooks/useBusinessInfo';
+import { MapPin, Phone, Clock } from 'lucide-react';
 
-interface ContactProps {
-  slug?: string;
-}
-
-const Contact = ({ slug }: ContactProps) => {
-  const { businessInfo, loading } = useBusinessInfo(slug);
+const Contact = () => {
+  const businessInfo = {
+    name: 'Steven Tabach',
+    location: '2Q7P+8GW, Av. 6 De las Provincias, Provincia de Alajuela, Alajuela, Costa Rica',
+    number: '+506 8484 2060',
+    schedule: [
+      '9:00 AM - 6:00 PM', // Monday
+      '9:00 AM - 6:00 PM', // Tuesday
+      '9:00 AM - 6:00 PM', // Wednesday
+      '9:00 AM - 6:00 PM', // Thursday
+      '9:00 AM - 6:00 PM', // Friday
+      '9:00 AM - 5:00 PM', // Saturday
+      'CERRADO'            // Sunday
+    ]
+  };
 
   // Form state
   const [formData, setFormData] = useState({
@@ -17,16 +25,14 @@ const Contact = ({ slug }: ContactProps) => {
     message: ''
   });
 
-  // WhatsApp phone number (you can update this with your business WhatsApp number)
-  const whatsappNumber = businessInfo?.number ? 
-    businessInfo.number.replace(/\D/g, '') : // Remove all non-digit characters
-    '50684842060'; // Default Costa Rica number
+  // WhatsApp phone number
+  const whatsappNumber = '50684842060';
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Create WhatsApp message
-    const message = `¡Hola! Me gustaría agendar una cita en ${businessInfo?.name || 'Steven Tabach'}
+    const message = `¡Hola! Me gustaría agendar una cita en ${businessInfo.name}
 
 *Información de contacto:*
 Nombre: ${formData.firstName} ${formData.lastName}
@@ -55,17 +61,9 @@ ${formData.message}
     });
   };
 
-  // Create Google Maps embed URL from location
-  const getMapEmbedUrl = (location: string | null) => {
-    if (!location) {
-      // Default to Costa Rica if no location available
-      return "https://www.google.com/maps/embed/v1/place?key=AIzaSyA7KW8Lw_2WXIMj8Vsbe6HSf6EW58WXu7Y&q=Costa+Rica";
-    }
-    
-    // Encode the location for Google Maps embed
-    const encodedLocation = encodeURIComponent(location);
-    return `https://www.google.com/maps/embed/v1/place?key=AIzaSyA7KW8Lw_2WXIMj8Vsbe6HSf6EW58WXu7Y&q=${encodedLocation}`;
-  };
+  // Google Maps embed URL
+  const mapEmbedUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyA7KW8Lw_2WXIMj8Vsbe6HSf6EW58WXu7Y&q=2Q7P%2B8GW%2C%20Av.%206%20De%20las%20Provincias%2C%20Provincia%20de%20Alajuela%2C%20Alajuela%2C%20Costa%20Rica";
+
   return (
     <section id="contact" className="py-20 bg-[#0c0c0c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,22 +84,16 @@ ${formData.message}
         {/* Large Google Map */}
         <div className="mb-16">
           <div className="w-full h-96 lg:h-[500px] rounded-lg overflow-hidden border border-[#BEA185]">
-            {loading ? (
-              <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                <div className="text-[#B8B8B8] text-lg">Loading map...</div>
-              </div>
-            ) : (
-              <iframe
-                src={getMapEmbedUrl(businessInfo?.location)}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Business Location"
-              ></iframe>
-            )}
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Business Location"
+            ></iframe>
           </div>
         </div>
         
@@ -111,19 +103,9 @@ ${formData.message}
               <MapPin className="h-6 w-6 text-[#F6CAA4] mt-1" />
               <div>
                 <h3 className="text-lg font-semibold text-white mb-1">Ubicación</h3>
-                {loading ? (
-                  <p className="text-[#B8B8B8]">Cargando ubicación...</p>
-                ) : (
-                  <p className="text-[#B8B8B8]">
-                    {businessInfo?.location || (
-                      <>
-                        2Q7P+8GW, Av. 6 De las Provincias<br />
-                        Provincia de Alajuela<br />
-                        Alajuela, Costa Rica
-                      </>
-                    )}
-                  </p>
-                )}
+                <p className="text-[#B8B8B8]">
+                  {businessInfo.location}
+                </p>
               </div>
             </div>
             
@@ -132,7 +114,7 @@ ${formData.message}
               <div>
                 <h3 className="text-lg font-semibold text-white mb-1">Teléfono</h3>
                 <p className="text-[#B8B8B8]">
-                  {loading ? 'Cargando...' : businessInfo?.number || '+506 8484 2060'}
+                  {businessInfo.number}
                 </p>
               </div>
             </div>
@@ -141,31 +123,19 @@ ${formData.message}
               <Clock className="h-6 w-6 text-[#F6CAA4] mt-1" />
               <div>
                 <h3 className="text-lg font-semibold text-white mb-1">Horarios</h3>
-                {loading ? (
-                  <p className="text-[#B8B8B8]">Cargando horarios...</p>
-                ) : (
-                  <div className="text-[#B8B8B8] space-y-1">
-                    {businessInfo?.schedule && businessInfo.schedule.length > 0 ? (
-                      (() => {
-                        const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-                        return days.map((day, index) => {
-                          const hours = businessInfo.schedule[index];
-                          return (
-                            <p key={index}>
-                             {day}: {hours && hours.trim() !== '' && hours.trim().toLowerCase() !== 'closed' ? hours : 'CERRADO'}
-                            </p>
-                          );
-                        });
-                      })()
-                    ) : (
-                      <>
-                        <p>Lunes - Viernes: 9:00 AM - 7:00 PM</p>
-                        <p>Sábado: 9:00 AM - 6:00 PM</p>
-                        <p>Domingo: CERRADO</p>
-                      </>
-                    )}
-                  </div>
-                )}
+                <div className="text-[#B8B8B8] space-y-1">
+                  {(() => {
+                    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+                    return days.map((day, index) => {
+                      const hours = businessInfo.schedule[index];
+                      return (
+                        <p key={index}>
+                          {day}: {hours}
+                        </p>
+                      );
+                    });
+                  })()}
+                </div>
               </div>
             </div>
             
