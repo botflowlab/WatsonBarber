@@ -27,7 +27,7 @@ const Footer = () => {
               {businessInfo.location}
             </div>
             <div className="text-white text-3xl font-light">
-              {businessInfo.number}
+              +506 8680 0468
             </div>
           </div>
 
