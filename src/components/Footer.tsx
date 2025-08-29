@@ -63,7 +63,7 @@ const Footer = () => {
                       return (
                         <div key={index} className="flex justify-between items-center">
                           <span className="text-[#B8B8B8] text-base">{day}</span>
-                          <span className="text-white text-base font-medium">
+                          <span className="text-white text-base font-light">
                             {hours}
                           </span>
                         </div>
