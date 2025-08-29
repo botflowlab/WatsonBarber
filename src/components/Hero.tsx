@@ -22,7 +22,7 @@ const Hero = () => {
                 </div>
               </div>
               <div className="text-white text-lg font-light tracking-[0.15em] uppercase">
-                Steven Tabach
+                Watson Barber
               </div>
               <div className="text-[#BEA185] text-xs tracking-[0.2em] uppercase font-light mt-1">
                 Costa Rica
