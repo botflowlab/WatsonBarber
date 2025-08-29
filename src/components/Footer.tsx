@@ -55,7 +55,7 @@ const Footer = () => {
                 </div>
                 
                 {/* Second Column: Viernes - Domingo */}
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {(() => {
                     const weekend = ['Viernes:', 'Sábado:', 'Domingo:'];
                     return weekend.map((day, index) => {
