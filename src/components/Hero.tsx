@@ -50,6 +50,9 @@ const Hero = () => {
                 <div className="text-[#F3C7A1] text-sm tracking-wide uppercase font-light hover:text-white transition-colors cursor-pointer">
                   Marcado de cejas
                 </div>
+                <div className="text-[#F3C7A1] text-sm tracking-wide uppercase font-light hover:text-white transition-colors cursor-pointer">
+                  Marcado de contornos
+                </div>
               </nav>
             </div>
           </div>
