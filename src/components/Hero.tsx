@@ -45,7 +45,7 @@ const Hero = () => {
                   Corte y barba
                 </div>
                 <div className="text-[#F3C7A1] text-sm tracking-wide uppercase font-light hover:text-white transition-colors cursor-pointer">
-                  Depilación - Nariz y orejas
+                  Depilación - Nariz y oídos
                 </div>
               </nav>
             </div>
