@@ -12,7 +12,7 @@ const BusinessNameClosing = () => {
           {/* Business Name */}
           <div className="relative z-10">
             <h1 className="text-[#BEA185] text-3xl sm:text-4xl lg:text-5xl xl:text-9xl font-extralight tracking-[0.1em] uppercase leading-none">
-              Steven Tabach
+              Watson Barber
             </h1>
             
             {/* Subtitle */}
