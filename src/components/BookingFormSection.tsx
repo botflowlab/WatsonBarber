@@ -256,7 +256,7 @@ const BookingFormSection = ({ slug }: BookingFormSectionProps) => {
 
         {/* Booking Form */}
         <div className="max-w-4xl mx-auto">
-          <div className="booking-form bg-[#F5F5F0] rounded-xl p-8 lg:p-12 shadow-2xl min-h-[600px]">
+          <div className="booking-form bg-[#EFEBE6] rounded-xl p-8 lg:p-12 shadow-2xl min-h-[600px]">
             
             {currentStep === 'services' && (
               <>
