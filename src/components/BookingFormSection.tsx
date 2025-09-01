@@ -143,8 +143,8 @@ const BookingFormSection = ({ slug }: BookingFormSectionProps) => {
       isRecommended: false
     },
     {
-      id: 'jason-cordoba',
-      name: 'Jason Córdoba (Ejemplo)',
+      id: 'jeison-watson',
+      name: 'Jeison Watson (Ejemplo)',
       description: 'Cuenta con amplia experiencia en barbería clásica, moderna y urbana.',
       isRecommended: false
     },
