@@ -13,7 +13,7 @@ const BusinessPage = () => {
 
   // Update document title
   useEffect(() => {
-    document.title = 'Steven Tabach - Premium Barbershop';
+    document.title = 'Watson Barber - Premium Barbershop';
   }, []);
 
   return (
