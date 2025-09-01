@@ -3,7 +3,7 @@ import { Scissors } from 'lucide-react';
 
 const Footer = () => {
   const businessInfo = {
-    location: '2Q7P+8GW, Av. 6 De las Provincias, Provincia de Alajuela, Alajuela, Costa Rica',
+    location: '	WRR6+F97, San José Province, San José, 10903',
     number: '+506 8484 2060',
     schedule: [
       '9:00 AM - 6:00 PM', // Monday
