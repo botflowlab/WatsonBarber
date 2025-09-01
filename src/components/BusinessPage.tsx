@@ -5,6 +5,7 @@ import TeamExperts from './TeamExperts';
 import StunningServices from './StunningServices';
 import Contact from './Contact';
 import BusinessNameClosing from './BusinessNameClosing';
+import BookingFormSection from './BookingFormSection';
 import Footer from './Footer';
 
 const BusinessPage = () => {
