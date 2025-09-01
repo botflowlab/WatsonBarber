@@ -20,6 +20,7 @@ const BusinessPage = () => {
       <Hero />
       <TeamExperts />
       <StunningServices />
+      <BookingFormSection />
       <Contact />
       <BusinessNameClosing />
       <Footer />
