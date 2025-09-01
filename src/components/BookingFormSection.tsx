@@ -97,7 +97,7 @@ const BookingFormSection = ({ slug }: BookingFormSectionProps) => {
   const getAvailableTimeSlots = () => {
     const slots = [];
     const startHour = 9; // 9 AM
-    const endHour = 18; // 6 PM
+    const endHour = 19; // 7 PM
     
     for (let hour = startHour; hour < endHour; hour++) {
       slots.push(`${hour.toString().padStart(2, '0')}:00`);
