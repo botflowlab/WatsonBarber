@@ -62,7 +62,7 @@ ${formData.message}
   };
 
   // Google Maps embed URL
-  const mapEmbedUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyA7KW8Lw_2WXIMj8Vsbe6HSf6EW58WXu7Y&q=2Q7P%2B8GW%2C%20Av.%206%20De%20las%20Provincias%2C%20Provincia%20de%20Alajuela%2C%20Alajuela%2C%20Costa%20Rica";
+  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.7502341995813!2d-84.1920447!3d9.9548517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e389b9de9ed9%3A0xba81a0abfb611928!2sWatson%20Barber!5e0!3m2!1sen!2scr!4v1693599999999!5m2!1sen!2scr";
 
   return (
     <section id="contact" className="py-20 bg-[#0c0c0c]">
