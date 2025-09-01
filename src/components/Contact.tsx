@@ -3,7 +3,7 @@ import { MapPin, Phone, Clock } from 'lucide-react';
 
 const Contact = () => {
   const businessInfo = {
-    name: 'Steven Tabach',
+    name: 'Watson Barber',
     location: 'Watson Barber, Provincia de San José, San José, 10903',
     number: '+506 8680 0468',
     schedule: [
