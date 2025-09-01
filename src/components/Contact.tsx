@@ -26,7 +26,7 @@ const Contact = () => {
   });
 
   // WhatsApp phone number
-  const whatsappNumber = '50684842060';
+  const whatsappNumber = '50686800468';
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
